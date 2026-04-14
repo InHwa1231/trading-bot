@@ -16,18 +16,7 @@ PYTHONUNBUFFERED = "1"
 # worker: 24/7 백그라운드 프로세스 (트래픽 필요 없음)
 worker = "python run_paper_trade.py"
 
-[[services]]
-internal_port = 8080
-protocol = "tcp"
-
-# Health check (선택사항 - 프로세스 상태 모니터링)
-[checks]
-"worker" = {
-  type = "exec"
-  interval = "30s"
-  timeout = "5s"
-  cmd = "test -f logs/paper_trade_*.log"
-}
+# HTTP 서버 없음 (순수 백그라운드 프로세스)
 
 [[vm]]
 # 메모리: 512MB (충분함)
