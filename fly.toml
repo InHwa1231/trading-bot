@@ -1,5 +1,5 @@
 # Fly.io 설정 파일
-app = "trading-bot-v56plus"
+app = "trading-bot-inhwal2312"
 
 # 기본 설정
 kill_timeout = 30
@@ -16,14 +16,12 @@ PYTHONUNBUFFERED = "1"
 # worker: 24/7 백그라운드 프로세스 (트래픽 필요 없음)
 worker = "python run_paper_trade.py"
 
-# HTTP 서버 없음 (순수 백그라운드 프로세스)
+# 머신 스케일: 항상 1개 유지 (24/7 실행)
+[scale]
+count = 1
 
 [[vm]]
 # 메모리: 512MB (충분함)
 memory = "512mb"
 cpu_kind = "shared"
 cpus = 1
-
-[deploy]
-# 자동 재시작 설정
-strategy = "rolling"
